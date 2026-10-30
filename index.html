@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teneo: Lose the fat. Keep the muscle.</title>
+<meta name="theme-color" content="#0A0B0D">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Link previews. Once the domain is live, make og:url and og:image absolute (https://YOURDOMAIN/og.png). -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teneo">
+<meta property="og:title" content="Teneo: Lose the fat. Keep the muscle.">
+<meta property="og:description" content="Teneo is the training partner for men on GLP-1 medication. See your strength hold while your weight falls, with a plan that bends with your shot.">
+<meta property="og:image" content="og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Teneo: Lose the fat. Keep the muscle.">
+<meta name="twitter:description" content="Teneo is the training partner for men on GLP-1 medication. See your strength hold while your weight falls, with a plan that bends with your shot.">
+<meta name="twitter:image" content="og.png">
+<meta name="description" content="Teneo is the training partner for men on GLP-1 medication. See your strength hold while your weight falls, with a plan that bends with your shot.">
+<style>
+/* Layout: one scroll story. A living Kettle and a drawing weight-vs-strength chart open it; each promise gets a wide band with an app card; then features, Kettle, pricing, trust, FAQ. Dark-first, mirroring the app's Palette; ice blue carries every emphasis. */
+:root {
+  --bg: #0A0B0D;
+  --raised: #15171B;
+  --overlay: #1E2126;
+  --line: rgba(255,255,255,0.08);
+  --fg: #F2F4F7;
+  --muted: #8B919A;
+  --context: #5A6068;
+  --accent: #7CC7FF;
+  --accent-glow: rgba(124,199,255,0.16);
+  --cobalt: #2F5BFF;
+  --violet: #8A6BFF;
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+  --font-num: ui-rounded, "SF Pro Rounded", -apple-system, "Helvetica Neue", system-ui, sans-serif;
+  --ease-out: cubic-bezier(.2,.8,.2,1);
+  --spring: cubic-bezier(.34,1.56,.64,1);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #F2F4F7; --raised: #E6EAEF; --overlay: #D9DEE7; --line: rgba(10,11,13,0.08);
+    --fg: #0A0B0D; --muted: #565B63; --context: #848B95;
+    --accent: #1F6FB0; --accent-glow: rgba(31,111,176,0.14);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #F2F4F7; --raised: #E6EAEF; --overlay: #D9DEE7; --line: rgba(10,11,13,0.08);
+  --fg: #0A0B0D; --muted: #565B63; --context: #848B95;
+  --accent: #1F6FB0; --accent-glow: rgba(31,111,176,0.14);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+[id] { scroll-margin-top: 84px; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 10px; }
+img { display: block; max-width: 100%; height: auto; }
+strong { color: var(--fg); font-weight: 600; }
+.em { color: var(--accent); }
+
+.band { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.inner { max-width: 1120px; margin: 0 auto; }
+.num { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.display { font-family: var(--font-num); letter-spacing: -0.03em; line-height: 1.02; text-wrap: balance; margin: 0; }
+
+/* Nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 84%, transparent); backdrop-filter: saturate(160%) blur(18px); -webkit-backdrop-filter: saturate(160%) blur(18px); border-bottom: 1px solid var(--line); }
+.nav .inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-num); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; }
+.brand img { width: 32px; height: 32px; border-radius: 8px; }
+.nav-links { display: flex; align-items: center; gap: 26px; font-size: 15px; }
+.nav-links a:not(.btn) { text-decoration: none; color: var(--muted); transition: color .2s; }
+.nav-links a:not(.btn):hover { color: var(--fg); }
+.btn { display: inline-flex; align-items: center; justify-content: center; background: var(--fg); color: var(--bg); text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 999px; padding: 10px 18px; white-space: nowrap; transition: transform .2s var(--ease-out), opacity .2s; }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: scale(.97); }
+.btn.big { font-size: 17px; padding: 16px 28px; }
+
+/* Hero */
+.hero .inner { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; align-items: center; padding-block: 80px 48px; }
+.hero h1 { font-size: clamp(50px, 7.6vw, 96px); line-height: 0.96; letter-spacing: -0.04em; font-weight: 800; margin-bottom: 26px; }
+.hero h1 .em { font-weight: 800; }
+.hero .lede { font-size: clamp(18px, 2vw, 21px); color: var(--muted); max-width: 29em; margin: 0 0 32px; }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+.cta-note { font-size: 15px; color: var(--muted); }
+.appstore { display: inline-block; line-height: 0; border-radius: 10px; transition: transform .2s var(--ease-out), opacity .2s; -webkit-tap-highlight-color: transparent; }
+.appstore img { height: 54px; width: auto; }
+.appstore:hover { transform: translateY(-1px); }
+.appstore:active { transform: scale(.97); opacity: .9; }
+.appstore:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+/* Kettle rig */
+.stage { position: relative; display: grid; place-items: center; min-height: 460px; perspective: 900px; }
+.rig { position: relative; width: min(80%, 420px); cursor: pointer; border: 0; padding: 0; background: none; -webkit-tap-highlight-color: transparent; }
+.rig:focus-visible { outline: 2px solid var(--accent); outline-offset: 8px; border-radius: 24px; }
+.rig { isolation: isolate; }
+.burst { z-index: 0; }
+.k3d { z-index: 1; position: absolute; left: -14%; right: -14%; top: -30%; bottom: -2%; pointer-events: none; opacity: 0; transition: opacity .5s; }
+.k3d canvas { display: block; }
+.k3d.ready { opacity: 1; }
+.stage.is3d .drop { visibility: hidden; }
+.stage.is3d .shadow { visibility: hidden; }
+.drop { animation: drop 1s var(--spring) both; }
+.bob { animation: bob 5.2s ease-in-out 1s infinite; }
+.hop { transform-origin: 50% 100%; }
+.stage.celebrating .hop { animation: hop .9s var(--ease-out); }
+.faces { position: relative; }
+.faces img { width: 100%; transition: opacity .18s; }
+.faces img + img { position: absolute; inset: 0; opacity: 0; }
+.stage.celebrating .faces .f-idle, .stage.celebrating .faces .f-happy { opacity: 0; }
+.stage.celebrating .faces .f-celebrate { opacity: 1; }
+.shadow { width: 46%; height: 18px; margin: -6px auto 0; border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,0.55), transparent); animation: shadow 5.2s ease-in-out 1s infinite; }
+.burst { position: absolute; left: 50%; top: 46%; width: 0; height: 0; pointer-events: none; }
+.burst i { position: absolute; width: 10px; height: 10px; margin: -5px; border-radius: 50%; background: var(--accent); opacity: 0; }
+.stage.celebrating .burst i { animation: spark .9s var(--ease-out) forwards; }
+
+@keyframes drop { 0% { transform: translateY(-46px) scale(.96, 1.04); } 60% { transform: translateY(0) scale(1.05, .95); } 100% { transform: translateY(0) scale(1, 1); } }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes shadow { 0%,100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(.86); opacity: .7; } }
+@keyframes hop { 0% { transform: scale(1,1); } 18% { transform: translateY(6px) scale(1.07,.92); } 50% { transform: translateY(-46px) scale(.95,1.06); } 78% { transform: translateY(0) scale(1.05,.95); } 100% { transform: scale(1,1); } }
+@keyframes spark { 0% { opacity: 1; transform: translate(0,0) scale(1); } 100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(.4); } }
+@keyframes rise { from { transform: translateY(14px); } to { transform: translateY(0); } }
+@keyframes drift { 0%,100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+
+/* Thesis chart */
+.thesis .inner { padding-block: 16px 104px; }
+.chart-card { background: var(--raised); border-radius: 28px; padding: clamp(22px, 4vw, 44px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.1fr); gap: 36px; align-items: center; }
+.chart-card h2 { font-size: clamp(30px, 3.6vw, 42px); margin-bottom: 14px; }
+.chart-card p { color: var(--muted); margin: 0 0 16px; }
+.chart-foot { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.chart-wrap { min-width: 0; }
+.chart-wrap svg { width: 100%; height: auto; display: block; overflow: visible; }
+.draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.armed .draw { stroke-dashoffset: 1; opacity: 0; }
+.armed .pop { opacity: 0; transform: scale(.6); }
+.play .draw { transition: stroke-dashoffset 1.6s cubic-bezier(.65,0,.35,1), opacity 0s; stroke-dashoffset: 0; opacity: 1; }
+.play .draw.second { transition-delay: .5s; }
+#ring .draw { stroke-dasharray: .853 1.2; }
+#ring.armed .draw { stroke-dashoffset: .853; }
+#ring.play .draw { stroke-dashoffset: 0; }
+.pop { transform-box: fill-box; transform-origin: center; transition: opacity .4s, transform .5s var(--spring); }
+.play .pop { opacity: 1; transform: scale(1); }
+.play .pop.d1 { transition-delay: 1.6s; }
+.play .pop.d2 { transition-delay: 2.1s; }
+.pulse { animation: pulse 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes pulse { 0%,100% { opacity: .28; transform: scale(1); } 50% { opacity: .05; transform: scale(2); } }
+
+/* Reveal: sections rest visible; JS only adds a soft lift-in */
+.rv { transition: transform .9s var(--ease-out), opacity .9s var(--ease-out); }
+.rv.armed { transform: translateY(24px); opacity: .35; }
+.rv.armed.play { transform: none; opacity: 1; }
+
+/* Promise bands */
+.promise .inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); align-items: center; padding-block: 88px; border-top: 1px solid var(--line); }
+.promise.flip .copy { order: 2; }
+.promise h2 { font-size: clamp(36px, 4.8vw, 58px); margin-bottom: 18px; }
+.promise .copy p { color: var(--muted); max-width: 29em; margin: 0 0 8px; }
+.points { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 0; max-width: 29em; }
+.points li { padding: 14px 0; border-top: 1px solid var(--line); font-size: 16px; }
+.points li:last-child { border-bottom: 1px solid var(--line); }
+
+/* iPhone 17 Pro frame around real screen recordings from the app */
+.phone { width: 330px; max-width: 100%; margin: 0 auto; }
+.phone-frame { position: relative; border-radius: 60px; padding: 11px; background: linear-gradient(145deg, #5b5f66 0%, #2a2d32 18%, #1a1c20 50%, #2c2f34 82%, #64686f 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06); }
+.phone-frame::before { content: ""; position: absolute; left: -3px; top: 118px; width: 3px; height: 28px; border-radius: 2px 0 0 2px; background: #2c2f34; box-shadow: 0 52px 0 0 #2c2f34, 0 104px 0 0 #2c2f34; }
+.phone-frame::after { content: ""; position: absolute; right: -3px; top: 180px; width: 3px; height: 74px; border-radius: 0 2px 2px 0; background: #2c2f34; }
+.screen { position: relative; aspect-ratio: 886 / 1926; border-radius: 49px; overflow: hidden; background: #0A0B0D; box-shadow: 0 0 0 2px #050506; }
+.screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.phone figcaption { margin-top: 18px; text-align: center; font-size: 15px; color: var(--muted); }
+.phone figcaption b { display: block; color: var(--fg); font-size: 17px; font-weight: 600; }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin: 0 0 64px; }
+.gallery .phone { width: 100%; max-width: 300px; margin: 0 auto; }
+.gallery .phone-frame { border-radius: 54px; padding: 10px; }
+.gallery .screen { border-radius: 44px; }
+
+/* Features: a quiet list, not a card grid */
+.features .inner { padding-block: 96px; border-top: 1px solid var(--line); }
+.head { max-width: 660px; margin: 0 0 48px; }
+.head h2 { font-size: clamp(34px, 4.4vw, 50px); margin-bottom: 14px; }
+.head p { color: var(--muted); margin: 0; }
+@media (max-width: 900px) { .gallery { grid-template-columns: repeat(3, 72%); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; } .gallery .phone { scroll-snap-align: center; } }
+.feats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 40px; }
+.feat { padding: 24px 0 28px; border-top: 1px solid var(--line); display: grid; gap: 8px; align-content: start; }
+.feat h3 { margin: 0; font-size: 18px; }
+.feat p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* Kettle */
+.kettle .inner { padding-block: 96px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 56px; align-items: center; }
+.kettle h2 { font-size: clamp(36px, 4.8vw, 58px); margin-bottom: 18px; }
+.kettle p { color: var(--muted); margin: 0 0 14px; max-width: 29em; }
+.moods { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+.mood { background: var(--raised); border-radius: 24px; padding: 22px 12px 16px; display: grid; justify-items: center; gap: 12px; text-align: center; }
+.mood .mk { width: 100%; max-width: 150px; margin-top: 18px; }
+.mood { cursor: pointer; }
+/* Kettle engine: move (actions) > breath (loop) > image, with a shadow that answers the height */
+.mk { position: relative; }
+.mk-move { transform-origin: 50% 100%; will-change: transform; }
+.mk-breath { transform-origin: 50% 100%; animation: breath var(--bd, 3.6s) ease-in-out infinite; }
+.mk[data-mood="easy"] .mk-breath { --bd: 5.2s; animation-name: breath-deep; }
+.mk img { width: 100%; }
+.mk-shadow { width: 52%; height: 12px; margin: -4px auto 0; border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,0.45), transparent); will-change: transform, opacity; }
+.mk-spark { position: absolute; left: 50%; top: 40%; width: 9px; height: 9px; margin: -4.5px; border-radius: 50%; background: var(--accent); pointer-events: none; }
+.mk-spark.ring { background: none; border: 2px solid var(--accent); }
+@keyframes breath { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.012,.988); } }
+@keyframes breath-deep { 0%,100% { transform: scale(1,1) translateY(0); } 45% { transform: scale(1.025,.975) translateY(1px); } }
+.mood span { font-size: 14px; color: var(--muted); }
+
+/* Pricing */
+.pricing .inner { padding-block: 96px; border-top: 1px solid var(--line); }
+.plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.plan { background: var(--raised); border-radius: 28px; padding: 30px; display: grid; gap: 16px; align-content: start; }
+.plan h3 { margin: 0; font-size: 20px; }
+.price { font-family: var(--font-num); font-size: 48px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+.price small { font-size: 16px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.plan .sub { color: var(--muted); font-size: 15px; margin: 0; }
+.plan ul { list-style: none; padding: 0; margin: 4px 0 0; display: grid; }
+.plan li { padding: 11px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.plan.pro { background: var(--overlay); }
+
+/* Trust */
+.trust .inner { padding-block: 80px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 40px; }
+.trust h2 { font-size: clamp(30px, 3.6vw, 42px); margin-bottom: 12px; }
+.trust p { color: var(--muted); margin: 0; }
+.trust p a { color: var(--accent); text-underline-offset: 3px; }
+.tlist { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px 36px; }
+.tlist div { display: grid; gap: 4px; }
+.tlist b { font-size: 17px; }
+.tlist span { color: var(--muted); font-size: 15px; }
+
+/* FAQ */
+.faq .inner { padding-block: 80px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 40px; }
+.faq h2 { font-size: clamp(30px, 3.6vw, 42px); }
+details { border-bottom: 1px solid var(--line); }
+summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; padding: 20px 0; font-size: 18px; font-weight: 600; }
+summary::-webkit-details-marker { display: none; }
+summary svg { width: 18px; height: 18px; flex: none; margin-top: 4px; color: var(--muted); transition: transform .25s var(--ease-out); }
+details[open] summary svg { transform: rotate(45deg); color: var(--accent); }
+details .ans { overflow: hidden; }
+details p { margin: 0; padding: 0 0 20px; color: var(--muted); max-width: 40em; }
+
+/* Final */
+.final .inner { padding-block: 96px 80px; border-top: 1px solid var(--line); display: grid; justify-items: center; text-align: center; gap: 20px; }
+.mk-final { width: 220px; margin-top: 30px; }
+.final h2 { font-size: clamp(44px, 6.4vw, 80px); letter-spacing: -0.04em; line-height: .98; }
+.final p { color: var(--muted); margin: 0; }
+
+footer .inner { padding-block: 28px 40px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; font-size: 14px; color: var(--muted); }
+footer nav { display: flex; gap: 22px; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--fg); }
+.credit { font-size: 12px; }
+.credit a { text-decoration: underline; text-underline-offset: 2px; }
+
+
+@media (max-width: 900px) {
+  .hero .inner, .chart-card, .promise .inner, .kettle .inner, .trust .inner, .faq .inner { grid-template-columns: minmax(0, 1fr); }
+  .promise.flip .copy { order: 0; }
+  .hero .inner { padding-block: 44px 24px; gap: 16px; }
+  .stage { min-height: 360px; }
+  .feats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav-links a.hide-sm { display: none; }
+}
+@media (max-width: 600px) {
+  .feats, .plans, .tlist { grid-template-columns: minmax(0, 1fr); }
+  .btn { padding: 9px 14px; font-size: 14px; }
+  .btn.big { font-size: 16px; padding: 15px 22px; }
+  .stage { min-height: 400px; }
+  .rig { width: min(72%, 320px); }
+  .promise .inner { padding-block: 56px; gap: 28px; }
+  .phone { width: min(300px, 82vw); margin-inline: auto; }
+  .gallery { grid-template-columns: repeat(3, 78%); gap: 16px; margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px; }
+  .appstore img { height: 50px; }
+  .ring-wrap { grid-template-columns: 104px minmax(0,1fr); }
+  .ring-wrap svg { width: 104px; height: 104px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<header class="nav band">
+  <div class="inner">
+    <a class="brand" href="#top"><img src="img/teneo-icon.png" alt="" width="32" height="32">Teneo</a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="hide-sm" href="#how">How it works</a>
+      <a class="hide-sm" href="#pricing">Pricing</a>
+      <a class="hide-sm" href="#faq">FAQ</a>
+      <a class="btn" href="#download">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero band">
+    <div class="inner">
+      <div>
+        <h1 class="display">Lose the fat.<br><span class="em">Keep the</span> muscle.</h1>
+        <p class="lede">Teneo is the training partner for your GLP-1. See your strength hold while your weight falls, with a plan that bends with your shot and protein you'll actually hit.</p>
+        <div class="cta-row" id="download">
+          <a class="appstore" href="#download" aria-label="Download Teneo on the App Store"><img src="img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
+          <span class="cta-note">Free to start. Logging is free, forever.</span>
+        </div>
+      </div>
+      <div class="stage" id="stage">
+        <button class="rig" id="rig" type="button" aria-label="Say hi to Kettle">
+          <div class="drop"><div class="bob"><div class="hop">
+            <div class="faces">
+              <img class="f-idle" src="img/kettle-idle-front.webp" alt="" width="900" height="760">
+                            <img class="f-celebrate" src="img/kettle-celebrate-front.webp" alt="" width="900" height="760">
+            </div>
+          </div></div></div>
+          <div class="shadow" id="kettle3d-shadow" aria-hidden="true"></div>
+          <div class="k3d" id="kettle3d" aria-hidden="true"></div>
+          <div class="burst" aria-hidden="true">
+            <i style="--x:-150px;--y:-90px"></i><i style="--x:150px;--y:-100px"></i><i style="--x:-110px;--y:-170px"></i>
+            <i style="--x:120px;--y:-180px"></i><i style="--x:-185px;--y:10px"></i><i style="--x:190px;--y:-20px"></i>
+            <i style="--x:0px;--y:-205px"></i>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="thesis band" id="how">
+    <div class="inner">
+      <div class="chart-card">
+        <div>
+          <h2 class="display">A scale shows one line. Teneo shows <span class="em">two.</span></h2>
+          <p>Fast weight loss can take muscle with it. Teneo tracks your strength on the lifts you actually do, right next to your weight, so you can see the part of you that's staying.</p>
+        </div>
+        <div class="chart-wrap">
+          <svg id="chart" viewBox="0 0 640 300" role="img" aria-label="Example chart: over 12 weeks weight falls 22 pounds while strength rises 6 percent.">
+            <g stroke="var(--line)" stroke-width="1">
+              <line x1="20" x2="560" y1="40" y2="40"/><line x1="20" x2="560" y1="130" y2="130"/><line x1="20" x2="560" y1="220" y2="220"/>
+            </g>
+            <polyline class="draw" pathLength="1" fill="none" stroke="var(--context)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+              points="20,60 65,72 110,86 155,98 200,112 245,126 290,138 335,150 380,160 425,170 470,182 515,190 560,198"/>
+            <polyline class="draw second" pathLength="1" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+              points="20,120 65,118 110,121 155,116 200,114 245,115 290,110 335,108 380,105 425,103 470,100 515,99 560,96"/>
+            <g class="pop d1">
+              <circle cx="560" cy="198" r="6" fill="var(--context)"/>
+              <text x="576" y="196" fill="var(--fg)" font-size="17" font-weight="700" font-family="ui-rounded, -apple-system, system-ui, sans-serif">−22 lb</text>
+              <text x="576" y="216" fill="var(--muted)" font-size="13" font-family="-apple-system, system-ui, sans-serif">Weight</text>
+            </g>
+            <g class="pop d2">
+              <circle cx="560" cy="96" r="14" fill="var(--accent)" class="pulse"/>
+              <circle cx="560" cy="96" r="7" fill="var(--accent)"/>
+              <text x="576" y="92" fill="var(--accent)" font-size="17" font-weight="700" font-family="ui-rounded, -apple-system, system-ui, sans-serif">+6%</text>
+              <text x="576" y="112" fill="var(--muted)" font-size="13" font-family="-apple-system, system-ui, sans-serif">Strength</text>
+            </g>
+            <g fill="var(--muted)" font-size="12" font-family="-apple-system, system-ui, sans-serif">
+              <text x="20" y="252">Week 1</text><text x="290" y="252" text-anchor="middle">Week 6</text><text x="560" y="252" text-anchor="end">Week 12</text>
+            </g>
+            <text x="20" y="284" fill="var(--muted)" font-size="12" font-family="-apple-system, system-ui, sans-serif">Strength is your estimated best lift. It isn't a body-composition measurement.</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise band flip">
+    <div class="inner">
+      <div class="copy rv">
+        <h2 class="display">A plan that bends with your shot.</h2>
+        <p>The day after your shot can feel rough. Tell Teneo how you feel and today follows. Not great means a shorter, lighter session and a protein floor instead of a goal. Feeling good puts the full plan back.</p>
+        <ul class="points">
+          <li>Log your dose in two taps, with a reminder on shot day</li>
+          <li>Good, Not great, or your own words, and today adapts</li>
+          <li>Gym, garage or living room, with bodyweight plans included</li>
+        </ul>
+      </div>
+      <figure class="phone rv"><div class="phone-frame"><div class="screen"><video data-clip muted loop playsinline preload="none" poster="media/feel-checkin-poster.jpg" aria-label="Teneo screen recording: an Ease in today plan switches to Full strength today after tapping Good"><source src="media/feel-checkin.mp4" type="video/mp4"></video></div></div></figure>
+    </div>
+  </section>
+
+  <section class="promise band">
+    <div class="inner">
+      <div class="copy rv">
+        <h2 class="display">Protein you'll actually hit.</h2>
+        <p>Most people on GLP-1s think they're eating enough protein. Most aren't. Teneo gives you a daily goal and a floor for the days you can barely eat, so a low day still counts.</p>
+        <ul class="points">
+          <li>Snap your plate and get the protein in seconds</li>
+          <li>Scan a barcode, or tap your usual shake</li>
+          <li>Water and fiber tracked alongside, because GLP-1s make both easy to forget</li>
+        </ul>
+      </div>
+      <figure class="phone rv"><div class="phone-frame"><div class="screen"><video data-clip muted loop playsinline preload="none" poster="media/photo-estimate-poster.jpg" aria-label="Teneo screen recording: a photo of a snack is read, estimated at 9 grams of protein and added to the protein ring"><source src="media/photo-estimate.mp4" type="video/mp4"></video></div></div></figure>
+    </div>
+  </section>
+
+  <section class="promise band flip scan-band">
+    <div class="inner">
+      <div class="copy rv">
+        <h2 class="display">Scan the barcode. Logged.</h2>
+        <p>Packaged food takes one scan. Point your camera at the barcode and Teneo looks it up in Open Food Facts, then fills in the protein, calories and serving for you. No typing, no searching.</p>
+        <ul class="points">
+          <li>Bars, shakes, yogurt, anything with a barcode</li>
+          <li>Change the serving or quantity before you save</li>
+          <li>Included free, for everyone</li>
+        </ul>
+      </div>
+      <figure class="phone rv"><div class="phone-frame"><div class="screen"><video data-clip muted loop playsinline preload="none" poster="media/barcode-poster.jpg" aria-label="Teneo screen recording: scanning a bag of Parm Crisps finds it in Open Food Facts and logs 13 grams of protein"><source src="media/barcode.mp4" type="video/mp4"></video></div></div></figure>
+    </div>
+  </section>
+
+  <section class="promise band">
+    <div class="inner">
+      <div class="copy rv">
+        <h2 class="display">Log every set in one tap.</h2>
+        <p>Workouts run like turn-by-turn directions. One big set on screen, one big Done button, and the rest timer moves you on by itself.</p>
+        <ul class="points">
+          <li>A 3, 2, 1 countdown, then one set at a time</li>
+          <li>Nudge the weight or reps when you did 9 instead of 8</li>
+          <li>Your workouts save to Apple Health</li>
+        </ul>
+      </div>
+      <figure class="phone rv"><div class="phone-frame"><div class="screen"><video data-clip muted loop playsinline preload="none" poster="media/workout-poster.jpg" aria-label="Teneo screen recording: a 3, 2, 1 countdown, logging bench press sets with a rest timer, and a new personal best"><source src="media/workout.mp4" type="video/mp4"></video></div></div></figure>
+    </div>
+  </section>
+
+  <section class="features band">
+    <div class="inner">
+      <div class="head rv">
+        <h2 class="display">Stop juggling a shot tracker, a lifting log and a calorie app. Use one.</h2>
+        <p>Teneo puts your medication, your training and your protein in one place, and connects them.</p>
+      </div>
+      <div class="gallery">
+        <figure class="phone rv"><div class="phone-frame"><div class="screen"><video data-clip muted loop playsinline preload="none" poster="media/today-poster.jpg" aria-label="Teneo screen recording: scrolling through the Today screen"><source src="media/today.mp4" type="video/mp4"></video></div></div><figcaption><b>Today</b>Your whole day on one screen</figcaption></figure>
+        <figure class="phone rv"><div class="phone-frame"><div class="screen"><video data-clip muted loop playsinline preload="none" poster="media/ai-workout-poster.jpg" aria-label="Teneo screen recording: asking for a chest and arms workout that keeps legs steady and getting a full routine"><source src="media/ai-workout.mp4" type="video/mp4"></video></div></div><figcaption><b>Build with AI</b>Ask for the workout you need</figcaption></figure>
+        <figure class="phone rv"><div class="phone-frame"><div class="screen"><video data-clip muted loop playsinline preload="none" poster="media/progress-poster.jpg" aria-label="Teneo screen recording: the Muscle Score and the weight vs strength chart"><source src="media/progress.mp4" type="video/mp4"></video></div></div><figcaption><b>Progress</b>Muscle Score and strength vs weight</figcaption></figure>
+      </div>
+      <div class="feats">
+        <div class="feat rv">
+          <h3>Muscle Score</h3>
+          <p>One weekly number from your strength, protein, training and recovery, plus the one change that would move it most.</p>
+        </div>
+        <div class="feat rv">
+          <h3>Build a workout by asking</h3>
+          <p>Say what you've got: 30 minutes, dumbbells, a sore shoulder. Get a routine you can edit, save and start.</p>
+        </div>
+        <div class="feat rv">
+          <h3>Logging built for the gym floor</h3>
+          <p>Big numbers and one tap per set. Easy to change when you did 10 reps instead of 8.</p>
+        </div>
+        <div class="feat rv">
+          <h3>Works with Apple Health</h3>
+          <p>Smart-scale weigh-ins, sleep and heart rate from Apple Watch or Oura, and your workouts saved back.</p>
+        </div>
+        <div class="feat rv">
+          <h3>Water and fiber</h3>
+          <p>Two quick counters on Today, for the two things GLP-1s make easiest to forget.</p>
+        </div>
+        <div class="feat rv">
+          <h3>Charts that tell you the answer</h3>
+          <p>Every chart says what it means in its title. No streaks to guilt you, and no weight-loss confetti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kettle band">
+    <div class="inner">
+      <div class="rv">
+        <h2 class="display">Meet Kettle, your spotter.</h2>
+        <p>Kettle reacts to how your day is going. He thinks while he reads your plate, takes it easy with you on a low day, and celebrates when you finish a workout or hit your protein.</p>
+        <p>He cheers what you do, never what the scale says. Prefer it quiet? Celebrations turn off with one switch.</p>
+      </div>
+      <div class="moods rv" aria-label="Kettle's moods">
+        <div class="mood"><div class="mk" data-mood="think"><img src="img/kettle-thinking.webp" alt="Kettle thinking" width="900" height="840"></div><span>Reading your plate</span></div>
+        <div class="mood"><div class="mk" data-mood="easy"><img src="img/kettle-easy.webp" alt="Kettle on an easy day" width="900" height="840"></div><span>Easy day</span></div>
+        <div class="mood"><div class="mk" data-mood="cheer"><img src="img/kettle-celebrate.webp" alt="Kettle celebrating" width="900" height="840"></div><span>Workout done</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing band" id="pricing">
+    <div class="inner">
+      <div class="head rv">
+        <h2 class="display">The basics are free. Forever.</h2>
+        <p>Everything you need to protect your muscle on a GLP-1 costs nothing. Pro adds the insight on top.</p>
+      </div>
+      <div class="plans">
+        <div class="plan rv">
+          <h3>Free</h3>
+          <div class="price">$0</div>
+          <p class="sub">No trial, no time limit.</p>
+          <ul>
+            <li>Weight vs strength chart</li>
+            <li>Training that adapts to your shot cycle</li>
+            <li>Protein, water and fiber logging</li>
+            <li>Barcode scanning</li>
+            <li>20 photo protein estimates a week</li>
+            <li>Shot log, reminders and data export</li>
+          </ul>
+        </div>
+        <div class="plan pro rv">
+          <h3>Teneo Pro</h3>
+          <div class="price">$59.99<small> / year</small></div>
+          <p class="sub">Or $9.99 a month. Try it free for 7 days.</p>
+          <ul>
+            <li>Your weekly Muscle Score and the one change to make</li>
+            <li>Build workouts by asking</li>
+            <li>Today's intensity from your sleep and heart rate</li>
+            <li>30 photo estimates a day</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust band">
+    <div class="inner">
+      <div class="rv">
+        <h2 class="display">Your data stays yours.</h2>
+        <p>No account needed. <a href="privacy.html">Read the privacy policy</a></p>
+      </div>
+      <div class="tlist rv">
+        <div><b>Logs live on your iPhone</b><span>Meals, lifts, shots and weigh-ins are stored on your device, not on our servers.</span></div>
+        <div><b>Health data never leaves your phone</b><span>Apple Health data is used on your device only. It's never sent to us or to AI.</span></div>
+        <div><b>Meal photos are discarded</b><span>A photo is used once for the estimate, then deleted. It's never stored.</span></div>
+        <div><b>No ads. No tracking.</b><span>No analytics or advertising tools, and we never sell or share your data.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq band" id="faq">
+    <div class="inner">
+      <h2 class="display">Questions</h2>
+      <div>
+        <details><summary>Is Teneo medical advice?<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary><div class="ans"><p>No. Teneo is a training and nutrition tracker. It never tells you how much medication to take. It records what you and your prescriber decide, and helps you train and eat around it. Talk to your doctor before changing your medication, diet or exercise.</p></div></details>
+        <details><summary>Which medications does it work with?<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary><div class="ans"><p>Teneo is built for weekly GLP-1 injections, including semaglutide and tirzepatide, brand-name or compounded. You log your dose and shot day, and the plan follows your week.</p></div></details>
+        <details><summary>Do I need a gym?<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary><div class="ans"><p>No. Tell Teneo what you have, from a full gym to nothing at all, and it builds around it. There are bodyweight plans for training at home.</p></div></details>
+        <details><summary>Do I need an Apple Watch or a smart scale?<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary><div class="ans"><p>No. Teneo works on its own. If you have an Apple Watch, an Oura ring or a smart scale, it picks up their data through Apple Health.</p></div></details>
+        <details><summary>What happens to my data if I change phones?<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary><div class="ans"><p>Your logs live on your iPhone. Before you switch, export them from Profile in one tap. Optional backup and sync is on the way.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final band">
+    <div class="inner">
+      <div class="mk mk-final" data-mood="cheer" aria-hidden="true"><img src="img/kettle-celebrate.webp" alt="" width="900" height="840"></div>
+      <h2 class="display">Keep what you've <span class="em">built.</span></h2>
+      <p>Free on iPhone. Logging stays free, forever.</p>
+      <a class="appstore" href="#download" aria-label="Download Teneo on the App Store"><img src="img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
+    </div>
+  </section>
+</main>
+
+<footer class="band">
+  <div class="inner">
+    <span>&copy; 2026 Teneo. Not medical advice.</span>
+    <nav aria-label="Footer"><a href="privacy.html">Privacy</a><a href="#faq">Support</a></nav>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+<script src="kettle3d.js"></script>
+<script>
+(() => {
+  const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Hero Kettle: the 3D version (kettle3d.js) owns him when WebGL works. This is the image fallback: tap to cheer.
+  const stage = document.getElementById('stage');
+  const rig = document.getElementById('rig');
+  if (!document.querySelector('#kettle3d.ready')) {
+    let celebrateTimer;
+    const cheer = () => {
+      clearTimeout(celebrateTimer);
+      stage.classList.remove('celebrating');
+      void stage.offsetWidth;
+      stage.classList.add('celebrating');
+      celebrateTimer = setTimeout(() => stage.classList.remove('celebrating'), 1400);
+    };
+    rig.addEventListener('click', cheer);
+    if (!reduce) setTimeout(cheer, 1500);
+  }
+
+  // Smooth FAQ accordions.
+  document.querySelectorAll('.faq details').forEach((d) => {
+    const sum = d.querySelector('summary');
+    const ans = d.querySelector('.ans');
+    let anim = null;
+    sum.addEventListener('click', (e) => {
+      if (reduce) return;
+      e.preventDefault();
+      if (anim) anim.cancel();
+      if (d.open) {
+        anim = ans.animate([{ height: ans.offsetHeight + 'px', opacity: 1 }, { height: '0px', opacity: 0 }], { duration: 320, easing: 'cubic-bezier(.4,0,.2,1)' });
+        anim.onfinish = () => { d.open = false; anim = null; };
+      } else {
+        d.open = true;
+        const h = ans.offsetHeight;
+        anim = ans.animate([{ height: '0px', opacity: 0 }, { height: h + 'px', opacity: 1 }], { duration: 380, easing: 'cubic-bezier(.2,.8,.2,1)' });
+        anim.onfinish = () => { anim = null; };
+      }
+    });
+  });
+
+  // Kettle engine: each Kettle breathes on a loop and acts on its own random timing, so no two moments repeat.
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const sparks = (host, n = 7) => {
+    for (let i = 0; i < n; i++) {
+      const sp = document.createElement('i');
+      sp.className = 'mk-spark' + (i % 3 === 0 ? ' ring' : '');
+      host.appendChild(sp);
+      const ang = rand(-Math.PI * 0.95, -Math.PI * 0.05);
+      const dist = rand(70, 130) * (host.offsetWidth / 160);
+      sp.animate([
+        { transform: 'translate(0,0) scale(.4)', opacity: 1 },
+        { transform: `translate(${Math.cos(ang) * dist}px, ${Math.sin(ang) * dist}px) scale(1)`, opacity: 1, offset: .6 },
+        { transform: `translate(${Math.cos(ang) * dist * 1.15}px, ${Math.sin(ang) * dist * 1.15 + 14}px) scale(.3)`, opacity: 0 }
+      ], { duration: rand(700, 1000), easing: 'cubic-bezier(.2,.8,.2,1)' }).onfinish = () => sp.remove();
+    }
+  };
+  const actions = {
+    think(move, shadow) {
+      const dir = Math.random() < .5 ? -1 : 1;
+      const a = rand(5, 9) * dir;
+      return move.animate([
+        { transform: 'translate(0,0) rotate(0deg)' },
+        { transform: `translate(${dir * 3}px,-6px) rotate(${a}deg)`, offset: .22, easing: 'cubic-bezier(.34,1.56,.64,1)' },
+        { transform: `translate(${dir * 3}px,-5px) rotate(${a * .85}deg)`, offset: .72 },
+        { transform: 'translate(0,0) rotate(0deg)' }
+      ], { duration: rand(1700, 2600), easing: 'ease-in-out' });
+    },
+    easy(move, shadow) {
+      if (Math.random() < .55) {
+        return move.animate([
+          { transform: 'translateY(0) scale(1,1)' },
+          { transform: 'translateY(2px) scale(1.035,.95)', offset: .45, easing: 'ease-out' },
+          { transform: 'translateY(0) scale(.995,1.01)', offset: .75 },
+          { transform: 'translateY(0) scale(1,1)' }
+        ], { duration: 2200, easing: 'ease-in-out' });
+      }
+      const dir = Math.random() < .5 ? -1 : 1;
+      return move.animate([
+        { transform: 'rotate(0deg)' },
+        { transform: `rotate(${dir * 6}deg) translateY(2px)`, offset: .4 },
+        { transform: `rotate(${dir * 5}deg) translateY(2px)`, offset: .7 },
+        { transform: 'rotate(0deg)' }
+      ], { duration: rand(2400, 3200), easing: 'cubic-bezier(.45,0,.55,1)' });
+    },
+    cheer(move, shadow, host) {
+      const h = rand(36, 54) * (host.offsetWidth / 160);
+      const spin = rand(-8, 8);
+      const twice = Math.random() < .3;
+      const kf = [
+        { transform: 'translateY(0) scale(1,1) rotate(0deg)' },
+        { transform: 'translateY(4px) scale(1.1,.88) rotate(0deg)', offset: .14, easing: 'cubic-bezier(.2,.9,.3,1)' },
+        { transform: `translateY(-${h}px) scale(.94,1.08) rotate(${spin}deg)`, offset: .42, easing: 'cubic-bezier(.3,0,.7,1)' },
+        { transform: `translateY(-${h * .92}px) scale(1,1) rotate(${spin * .6}deg)`, offset: .52, easing: 'cubic-bezier(.5,0,.9,.6)' },
+        { transform: 'translateY(0) scale(1.12,.87) rotate(0deg)', offset: .74, easing: 'cubic-bezier(.2,.9,.3,1.3)' },
+        { transform: 'translateY(0) scale(.97,1.03) rotate(0deg)', offset: .86 },
+        { transform: 'translateY(0) scale(1,1) rotate(0deg)' }
+      ];
+      shadow.animate([
+        { transform: 'scaleX(1)', opacity: 1 }, { transform: 'scaleX(1.12)', opacity: 1, offset: .14 },
+        { transform: 'scaleX(.6)', opacity: .35, offset: .45 }, { transform: 'scaleX(1.15)', opacity: 1, offset: .74 },
+        { transform: 'scaleX(1)', opacity: 1 }
+      ], { duration: 1050 });
+      setTimeout(() => sparks(host), 300);
+      const anim = move.animate(kf, { duration: 1050 });
+      if (twice) anim.onfinish = () => { move.animate(kf, { duration: 900 }); shadow.animate([{ transform: 'scaleX(1)' }, { transform: 'scaleX(.65)', offset: .45 }, { transform: 'scaleX(1)' }], { duration: 900 }); setTimeout(() => sparks(host, 5), 260); };
+      return anim;
+    }
+  };
+  const waits = { think: [600, 1800], easy: [1800, 3800], cheer: [1600, 3400] };
+  document.querySelectorAll('.mk').forEach((host) => {
+    const mood = host.dataset.mood;
+    const img = host.querySelector('img');
+    const move = document.createElement('div'); move.className = 'mk-move';
+    const breath = document.createElement('div'); breath.className = 'mk-breath';
+    breath.style.animationDelay = (-rand(0, 4)) + 's';
+    img.replaceWith(move); move.appendChild(breath); breath.appendChild(img);
+    const shadow = document.createElement('div'); shadow.className = 'mk-shadow'; host.appendChild(shadow);
+    if (reduce) return;
+    if (host.dataset.manual) { host._act = () => actions[mood](move, shadow, host); return; }
+    let visible = false, timer = null, busy = false;
+    const act = () => {
+      if (!visible || busy) return;
+      busy = true;
+      const a = actions[mood](move, shadow, host);
+      const done = () => { busy = false; schedule(); };
+      if (a) a.finished.then(() => setTimeout(done, mood === 'cheer' ? 300 : 0)).catch(done); else done();
+    };
+    const schedule = () => { clearTimeout(timer); timer = setTimeout(act, rand(...waits[mood])); };
+    const card = host.closest('.mood') || host;
+    card.addEventListener('click', () => { clearTimeout(timer); act(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((ents) => { visible = ents[0].isIntersecting; if (visible) schedule(); else clearTimeout(timer); }, { threshold: .4 }).observe(host);
+    } else { visible = true; schedule(); }
+  });
+
+
+  // Real screen recordings: a clip plays while at least half of it is on screen and pauses otherwise.
+  // Clips load just before they scroll in. Reduce Motion keeps the posters.
+  const clips = [...document.querySelectorAll('video[data-clip]')];
+  if (!reduce && clips.length) {
+    const play = (v) => { v.preload = 'auto'; const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((ents) => ents.forEach((e) => {
+        if (e.isIntersecting && e.intersectionRatio >= 0.5) play(e.target); else e.target.pause();
+      }), { threshold: [0, 0.5, 1] });
+      const warm = new IntersectionObserver((ents) => ents.forEach((e) => {
+        if (e.isIntersecting && e.target.preload === 'none') { e.target.preload = 'auto'; e.target.load(); }
+      }), { rootMargin: '800px 0px' });
+      clips.forEach((v) => { io.observe(v); warm.observe(v); });
+    } else clips.forEach((v) => { v.preload = 'auto'; v.autoplay = true; });
+  }
+
+  // Draw the chart and the ring, and lift sections in, as they enter the view.
+  if (reduce || !('IntersectionObserver' in window)) return;
+  const targets = [document.getElementById('chart'), document.getElementById('ring'), ...document.querySelectorAll('.rv')];
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (en.isIntersecting) {
+        requestAnimationFrame(() => requestAnimationFrame(() => en.target.classList.add('play')));
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  targets.forEach((el) => {
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const visible = r.top < innerHeight * 0.92 && r.bottom > 0;
+    if (visible && el.classList.contains('rv')) return;
+    el.classList.add('armed');
+    io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

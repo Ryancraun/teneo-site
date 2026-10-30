@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teneo Privacy Policy</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0A0B0D">
+<style>
+/* Layout: a single reading column with a sticky section index beside it on wide screens. Dark-first, matching the app. */
+:root {
+  --bg: #0A0B0D;
+  --raised: #15171B;
+  --overlay: #1E2126;
+  --line: rgba(255,255,255,0.08);
+  --fg: #F2F4F7;
+  --muted: #8B919A;
+  --accent: #7CC7FF;
+  --accent-soft: rgba(124,199,255,0.14);
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  --font-display: ui-rounded, "SF Pro Rounded", -apple-system, "Helvetica Neue", system-ui, sans-serif;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #F2F4F7; --raised: #E6EAEF; --overlay: #D9DEE7; --line: rgba(10,11,13,0.08);
+    --fg: #0A0B0D; --muted: #565B63; --accent: #1F6FB0; --accent-soft: rgba(31,111,176,0.10);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #F2F4F7; --raised: #E6EAEF; --overlay: #D9DEE7; --line: rgba(10,11,13,0.08);
+  --fg: #0A0B0D; --muted: #565B63; --accent: #1F6FB0; --accent-soft: rgba(31,111,176,0.10);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.top {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.mark {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 20px; letter-spacing: -0.01em;
+  color: var(--fg); text-decoration: none;
+}
+.mark svg { width: 26px; height: 26px; flex: none; }
+.top nav { display: flex; gap: 20px; font-size: 15px; }
+.top nav a { color: var(--muted); text-decoration: none; }
+.top nav a:hover, .top nav a[aria-current] { color: var(--fg); }
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 64px;
+  padding-block: 56px 96px;
+}
+.toc { position: sticky; top: calc(24px + env(safe-area-inset-top, 0px)); align-self: start; }
+.toc p { margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 14px; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--fg); }
+
+main { min-width: 0; max-width: 680px; }
+.eyebrow { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 52px);
+  line-height: 1.05; letter-spacing: -0.02em; font-weight: 700;
+  margin: 12px 0 16px; text-wrap: balance;
+}
+.lede { font-size: 19px; color: var(--muted); margin: 0 0 8px; }
+.dates { font-size: 14px; color: var(--muted); margin: 0; font-variant-numeric: tabular-nums; }
+
+.short {
+  margin: 40px 0 8px;
+  background: var(--raised);
+  border-radius: 20px;
+  padding: 28px;
+  display: grid; gap: 18px;
+}
+.short h2 { margin: 0; font-size: 15px; font-family: var(--font-body); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.short ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.short li { display: grid; grid-template-columns: 22px minmax(0,1fr); gap: 12px; align-items: start; }
+.short li svg { width: 22px; height: 22px; margin-top: 2px; color: var(--accent); }
+.short strong { display: block; font-weight: 600; }
+.short span { color: var(--muted); font-size: 16px; }
+
+section { padding-top: 48px; scroll-margin-top: 24px; }
+h2 {
+  font-family: var(--font-display);
+  font-size: 26px; line-height: 1.2; letter-spacing: -0.01em; font-weight: 700;
+  margin: 0 0 14px; text-wrap: balance;
+}
+h3 { font-size: 17px; font-weight: 600; margin: 24px 0 6px; }
+p { margin: 0 0 14px; }
+ul.plain { margin: 0 0 14px; padding-left: 20px; display: grid; gap: 6px; }
+
+.table-wrap { overflow-x: auto; margin: 8px 0 18px; border: 1px solid var(--line); border-radius: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 480px; }
+th, td { text-align: left; padding: 12px 16px; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: var(--overlay); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 600; white-space: nowrap; }
+
+.note {
+  background: var(--accent-soft);
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 16px;
+  margin: 8px 0 14px;
+}
+.contact {
+  display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  background: var(--raised); border-radius: 14px; padding: 14px 16px; margin: 4px 0 14px;
+}
+.contact code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 15px; user-select: all; }
+.contact button {
+  font: inherit; font-size: 14px; font-weight: 600;
+  color: var(--bg); background: var(--accent);
+  border: 0; border-radius: 999px; padding: 6px 14px; cursor: pointer;
+}
+.contact button:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+
+footer {
+  max-width: 1040px; margin: 0 auto;
+  border-top: 1px solid var(--line);
+  padding-block: 28px 40px;
+  display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between;
+  font-size: 14px; color: var(--muted);
+}
+footer nav { display: flex; gap: 20px; }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--fg); }
+
+@media (max-width: 820px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 0; padding-block: 36px 72px; }
+  .toc { display: none; }
+  .top nav { gap: 14px; }
+  .short { padding: 22px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+</head>
+<body>
+<header class="top">
+  <a class="mark" href="index.html" aria-label="Teneo home">
+    <svg viewBox="0 0 26 26" fill="none" aria-hidden="true">
+      <path d="M8 9.5V7.5a5 5 0 0 1 10 0v2" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="13" cy="16" r="7.5" stroke="var(--accent)" stroke-width="2.2"/>
+    </svg>
+    Teneo
+  </a>
+  <nav aria-label="Site">
+    <a href="#top" aria-current="page">Privacy</a>
+    <a href="#contact">Support</a>
+  </nav>
+</header>
+
+<div class="wrap" id="top">
+  <aside class="toc" aria-label="On this page">
+    <p>On this page</p>
+    <ol>
+      <li><a href="#on-your-phone">On your phone</a></li>
+      <li><a href="#apple-health">Apple Health</a></li>
+      <li><a href="#photos-ai">Meal photos and AI</a></li>
+      <li><a href="#device-check">Device check and limits</a></li>
+      <li><a href="#purchases">Purchases</a></li>
+      <li><a href="#never">What we never do</a></li>
+      <li><a href="#choices">Your choices</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#medical">Not medical advice</a></li>
+      <li><a href="#changes">Changes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </aside>
+
+  <main>
+    <p class="eyebrow">Teneo for iPhone</p>
+    <h1>Privacy Policy</h1>
+    <p class="lede">Teneo helps men on GLP-1 medication keep their muscle while they lose fat. Your training, protein and health data are yours. Here is exactly what the app does with them.</p>
+    <p class="dates">Effective October 27, 2026</p>
+
+    <div class="short">
+      <h2>The short version</h2>
+      <ul>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div><strong>Your logs live on your iPhone.</strong><span>No account, no sign-up. Meals, workouts, shots, weight and measurements are stored on your device, not on our servers.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 5.65-7 10-7 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <div><strong>Apple Health data never leaves your phone.</strong><span>Teneo reads and writes Health data only on your device. None of it goes to us, to AI, or to anyone else.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12.5" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 6l1.2-2h4.6l1.2 2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <div><strong>Meal photos are sent once, then discarded.</strong><span>When you snap a meal, the photo is sent for a protein estimate and deleted as soon as the estimate comes back. It is never stored.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M5.6 5.6l12.8 12.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div><strong>No ads, no tracking, no selling.</strong><span>Teneo has no analytics or advertising tools, and we never sell or share your data.</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <section id="on-your-phone">
+      <h2>What stays on your phone</h2>
+      <p>Teneo has no accounts. Everything you log is stored in the app on your iPhone:</p>
+      <ul class="plain">
+        <li>Your profile from onboarding: current and goal weight, training days, equipment, your medication name and dose, and your shot day.</li>
+        <li>Meals and protein, workouts, sets and lifts, shots, weigh-ins, waist measurements and how you feel each day.</li>
+        <li>Progress photos, if you take them.</li>
+        <li>Your settings, such as reminders, appearance, haptics and celebrations.</li>
+      </ul>
+      <p>We cannot see any of this. Today it is not synced to iCloud, so deleting the app deletes your logs. Before you switch phones, use <strong>Profile, Your data, Export as CSV</strong> to keep a copy. If we add iCloud sync later, it will use your own private iCloud storage, and we will update this policy first.</p>
+      <p>Reminders, such as a daily weigh-in or your shot day, are scheduled on your phone. When you reply to a reminder, for example by typing your weight, the answer is saved on your phone.</p>
+    </section>
+
+    <section id="apple-health">
+      <h2>Apple Health</h2>
+      <p>If you allow it, Teneo connects to Apple Health. You choose each type in Apple's own permission screen and can change your mind any time in the Health app. Teneo works fully without Health access.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Data</th><th>Read or write</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Weight</td><td>Read</td><td>So a smart-scale weigh-in counts as today's weight.</td></tr>
+            <tr><td>Sleep</td><td>Read</td><td>To compare last night with your usual for today's training intensity.</td></tr>
+            <tr><td>Heart rate variability</td><td>Read</td><td>Same as sleep: recovery against your own baseline.</td></tr>
+            <tr><td>Resting heart rate</td><td>Read</td><td>Same as sleep: recovery against your own baseline.</td></tr>
+            <tr><td>Active energy</td><td>Read and write</td><td>To record the calories of a finished workout.</td></tr>
+            <tr><td>Workouts</td><td>Write</td><td>To save your strength sessions to Apple Health.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Health data is used only inside the app, on your phone. It is never sent to our servers, never sent to an AI service, never used for advertising or marketing, and never sold or shared. This follows Apple's rules for HealthKit apps.</p>
+    </section>
+
+    <section id="photos-ai">
+      <h2>Meal photos and AI features</h2>
+      <p>Two features need a server, because they use AI to do the work. Each runs only when you start it.</p>
+      <h3>Photo protein estimates</h3>
+      <p>When you take a photo of a meal, Teneo shrinks it and sends it to our server, which asks Anthropic's Claude AI to estimate the protein and calories. The photo is held in memory only while the estimate is made, then discarded. It is never saved to a database, file storage or our logs. Only the photo is sent: no name, no Health data and nothing else from your logs.</p>
+      <h3>Build with AI (workouts)</h3>
+      <p>When you ask Teneo to build a workout, it sends the request you set up: your goal, minutes available, equipment, the exercise list it can choose from, a "how I feel today" choice if you pick one, and anything you type. The workout comes back to your phone. Nothing about the request is stored.</p>
+      <h3>Who handles these requests</h3>
+      <ul class="plain">
+        <li><strong>Supabase</strong> hosts our server function. It passes requests through and stores no photos or text.</li>
+        <li><strong>Anthropic</strong> runs the AI. It processes your request to return the result, under commercial terms that do not allow it to train its models on that data. See <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's privacy policy</a>.</li>
+      </ul>
+      <p>Pasting a routine never uses the network. The routine is read on your phone.</p>
+    </section>
+
+    <section id="device-check">
+      <h2>Device check and usage limits</h2>
+      <p>To stop abuse of the AI features, our server checks that each request comes from the real Teneo app on a real iPhone, using Apple's App Attest. This creates a random key for your copy of the app. The key does not identify you and is not linked to your name, email, Apple ID or Health data.</p>
+      <p>We use that key to count how many photo estimates and AI workouts you use, so we can apply limits (for example, 20 free photo estimates a week). We also keep a usage record of how many AI requests were made each day and how much they cost. That record has no key, no photo and no text in it.</p>
+      <div class="note">If you delete and reinstall Teneo, the app makes a new key. The old one is no longer used.</div>
+    </section>
+
+    <section id="purchases">
+      <h2>Purchases</h2>
+      <p>Teneo Pro is sold through the App Store. Apple handles payment, and we never see your card or Apple ID. To unlock Pro features that use our server, the app sends Apple's signed proof of your subscription, which our server checks and does not store. To manage or cancel, go to <strong>Settings, your name, Subscriptions</strong> on your iPhone.</p>
+    </section>
+
+    <section id="never">
+      <h2>What we never do</h2>
+      <ul class="plain">
+        <li>Sell or rent your data.</li>
+        <li>Show ads, or use advertising or analytics tools.</li>
+        <li>Track you across other apps or websites.</li>
+        <li>Send Health data off your phone.</li>
+        <li>Store your meal photos.</li>
+      </ul>
+    </section>
+
+    <section id="choices">
+      <h2>Your choices</h2>
+      <ul class="plain">
+        <li><strong>Apple Health:</strong> change access any time in the Health app, under Sharing, Apps, Teneo.</li>
+        <li><strong>Camera and photos:</strong> change access in iPhone Settings, Teneo.</li>
+        <li><strong>Reminders:</strong> turn them off in Teneo's Settings or in iPhone Settings, Notifications.</li>
+        <li><strong>Export:</strong> Profile, Your data, Export as CSV gives you a copy of your logs.</li>
+        <li><strong>Delete everything:</strong> delete the app. Your logs are on your phone, so they go with it. Anything Teneo wrote to Apple Health stays in Health until you delete it there.</li>
+      </ul>
+    </section>
+
+    <section id="rights">
+      <h2>Your rights</h2>
+      <p>Depending on where you live, including the EU, the UK and California, you may have the right to access, correct or delete personal data, and to object to how it is used. Because your logs never reach us, the only data we hold is the anonymous device key and usage counts described above. To ask about or remove it, contact us below and include the date you installed the app.</p>
+      <p>Teneo is for adults 18 and over. It is not meant for children, and we do not knowingly collect data from anyone under 18.</p>
+    </section>
+
+    <section id="medical">
+      <h2>Not medical advice</h2>
+      <p>Teneo is a training and nutrition tracker. It does not diagnose, treat or advise on any medication or condition, and it never tells you how much medication to take. It records what you and your prescriber decide. Talk to your doctor before changing your medication, diet or exercise.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this policy</h2>
+      <p>If we change how Teneo handles data, we will update this page and the date at the top before the change takes effect. For a significant change, such as adding iCloud sync, we will also tell you in the app.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Questions, requests or support:</p>
+      <div class="contact">
+        <code id="email">support@teneo.app</code>
+        <button type="button" id="copy-email">Copy</button>
+      </div>
+      <p>Teneo is made by Ryan Craun in Pickerington, Ohio, USA.</p>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <span>&copy; 2026 Teneo</span>
+  <nav aria-label="Footer">
+    <a href="#top">Privacy</a>
+    <a href="#contact">Support</a>
+  </nav>
+</footer>
+
+<script>
+  const btn = document.getElementById('copy-email');
+  const email = document.getElementById('email');
+  btn.addEventListener('click', () => {
+    const done = () => { btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = 'Copy'; }, 1600); };
+    const fallback = () => {
+      const r = document.createRange(); r.selectNodeContents(email);
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email.textContent).then(done, fallback);
+    } else { fallback(); }
+  });
+</script>
+
+</body>
+</html>
